@@ -1,21 +1,27 @@
 class Solution {
 public:
     vector<string> splitWordsBySeparator(vector<string>& words, char separator) {
+        string temp;
+        for(auto i: words)
+        {
+           temp += i+separator;
+        }
         vector<string> res;
         string t = "";
-            for(auto i: words)
-                t += separator+i;
-            cout << t << endl;
-
-        for(int j =0;j<t.length();j++)
+        for(int i=0;i<temp.length();i++)
         {
-            string w = "";
-            while(t[j]!=separator && j<t.length())
-            {
-                w += t[j++];
-            }
-            if (w != "")
-                res.push_back(w);
+           if(temp[i]!=separator)
+           {
+             t += temp[i];
+           }
+           else
+           {
+             if(t!="")
+             {
+               res.push_back(t);
+               t = "";
+             }
+           }
         }
         return res;
     }
