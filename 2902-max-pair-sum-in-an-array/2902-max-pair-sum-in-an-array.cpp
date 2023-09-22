@@ -3,15 +3,14 @@ public:
 
     int findmax(int s)
     {
-      vector<int> t;
-      int temp;
-      while(s>0)
+      int temp=0;
+      while(s)
       {
-        temp = s%10;
+        int re = s%10;
+        temp = max(temp,re);
         s/=10;
-        t.push_back(temp);
       }
-      return *max_element(t.begin(),t.end());
+      return temp;
     }
 
 
