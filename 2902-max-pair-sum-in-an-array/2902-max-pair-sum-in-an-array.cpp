@@ -16,19 +16,20 @@ public:
 
 
     int maxSum(vector<int>& nums) {
-        int max = -1,temp;
+        int maxi = -1,temp;
+        vector<int> s;
         for(int i=0;i<nums.size();i++)
+        {
+          s.push_back(findmax(nums[i]));
+        }
+        for(int i=0;i<nums.size()-1;i++)
         {
           for(int j=i+1;j<nums.size();j++)
           {
-            if(findmax(nums[i])==findmax(nums[j]))
-            {
-              temp = nums[i]+nums[j];
-              if(max<temp)
-                max = temp;
-            }
+              if(s[i]==s[j])
+                maxi = max(maxi,nums[i]+nums[j]);
           }
         }
-        return max;
+        return maxi;
     }
 };
