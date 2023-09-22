@@ -15,11 +15,11 @@ public:
 
 
     int maxSum(vector<int>& nums) {
-        int maxi = -1,temp;
-        vector<int> s;
+        int maxi = -1,temp,j=0;
+        vector<int> s(nums.size());
         for(int i=0;i<nums.size();i++)
         {
-          s.push_back(findmax(nums[i]));
+          s[j++] = findmax(nums[i]);
         }
         for(int i=0;i<nums.size()-1;i++)
         {
